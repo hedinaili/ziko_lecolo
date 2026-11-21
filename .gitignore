@@ -221,3 +221,12 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Node / Vite / tests
+node_modules/
+coverage/
+test-results/
+playwright-report/
+.vs/
+
+screenshots/

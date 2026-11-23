@@ -4,6 +4,12 @@ import { Rng } from '../../src/core/rng';
 import { QUIZ } from '../../src/data/quiz';
 import { makeCtx } from './helpers';
 
+it.each([['astroZiko',120,120],['triExpress',200,270]] as const)('%s reserves gold for the new threshold', (game,goal,score) => {
+  expect(medalFor((score-1)/goal,game).medal).toBe('silver');
+  expect(medalFor(score/goal,game)).toEqual({medal:'gold',coins:20});
+  expect(medalFor(.4,game).medal).toBe('bronze');
+});
+
 /** A Rng whose range() always returns the middle value (no audience randomness). */
 function flatRng(): Rng {
   const r = new Rng(1);

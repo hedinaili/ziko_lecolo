@@ -5,9 +5,16 @@ export const ui = new UiStateMachine();
 
 export interface DebugInfo {
   scene: string;
+  combatTool?: string;
+  duel?: {heroX:number;enemyX:number;hp:number;enemyHp:number;attack:number;height:number;crouch:boolean;vanish:boolean;guard:boolean;vortex:number;parryNow:boolean};
   introIndex: number;
   introStep: string;
   attract: boolean;
+  boardCoins?: number;
+  shipX?: number;
+  bankFrame?: number;
+  turboActive?: boolean;
+  triSorted?: number;
 }
 
 export const debugInfo: DebugInfo = { scene: 'Boot', introIndex: -1, introStep: '', attract: false };

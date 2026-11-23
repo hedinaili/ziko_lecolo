@@ -66,9 +66,14 @@ export function pickQuestions(state: GameState, era: Era, count: number, rng: Rn
   return picked;
 }
 
-export function medalFor(scoreRatio: number): { medal: Medal; coins: number } {
-  const ratio = Math.min(1, Math.max(0, Number.isFinite(scoreRatio) ? scoreRatio : 0));
-  for (const m of BALANCE.minigame.medals) if (ratio >= m.min) return { medal: m.medal, coins: m.coins };
+export function medalThreshold(tier: typeof BALANCE.minigame.medals[number], id?: MinigameId): number {
+  if (tier.medal === 'gold' && id === 'astroZiko') return 1;
+  if (tier.medal === 'gold' && id === 'triExpress') return 1.35;
+  return tier.min;
+}
+export function medalFor(scoreRatio: number, id?: MinigameId): { medal: Medal; coins: number } {
+  const ratio = Number.isFinite(scoreRatio) ? scoreRatio : 0;
+  for (const m of BALANCE.minigame.medals) if (ratio >= medalThreshold(m,id)) return { medal: m.medal, coins: m.coins };
   return { medal: 'none', coins: 2 };
 }
 

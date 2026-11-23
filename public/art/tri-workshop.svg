@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+<defs>
+ <linearGradient id="wall" x2="0" y2="1"><stop stop-color="#b8d5cf"/><stop offset="1" stop-color="#eaf1da"/></linearGradient>
+ <linearGradient id="floor" x2=".2" y2="1"><stop stop-color="#9dafaa"/><stop offset="1" stop-color="#e0e6cc"/></linearGradient>
+ <linearGradient id="rubber" x2="0" y2="1"><stop stop-color="#4e6261"/><stop offset="1" stop-color="#788880"/></linearGradient>
+ <linearGradient id="steel" x2="0" y2="1"><stop stop-color="#d4dbcf"/><stop offset=".35" stop-color="#819691"/><stop offset="1" stop-color="#415758"/></linearGradient>
+ <g id="leg"><path d="M0 359h26l-7 63H5z" fill="url(#steel)" stroke="#435957" stroke-width="3"/><rect x="-4" y="418" width="31" height="6" rx="2" fill="#3c514e"/></g>
+ <linearGradient id="sky" x2=".15" y2="1"><stop stop-color="#7bbac5"/><stop offset=".68" stop-color="#d9e8ce"/><stop offset="1" stop-color="#ffe0aa"/></linearGradient>
+ <linearGradient id="panel" x2=".9" y2=".25"><stop stop-color="#446769"/><stop offset=".65" stop-color="#658180"/><stop offset="1" stop-color="#334f52"/></linearGradient>
+ <linearGradient id="sunbeam" x2=".7" y2="1"><stop stop-color="#fff0b9" stop-opacity=".44"/><stop offset="1" stop-color="#fff5da" stop-opacity="0"/></linearGradient>
+ <pattern id="grate" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0 2h8" stroke="#223f43" stroke-width="3"/></pattern>
+ <pattern id="stripe" width="24" height="12" patternUnits="userSpaceOnUse"><rect width="24" height="12" fill="#68746a"/><path d="m0 12 9-12h10l-9 12z" fill="#e0b864"/></pattern>
+ <clipPath id="panorama"><rect x="187" y="96" width="876" height="140" rx="5"/></clipPath>
+ <g id="bale">
+  <path d="m0 9 18-9 64 3-12 10z" fill="#ddbc86"/>
+  <path d="m0 9 70 4-1 35-69-5z" fill="#b99a71"/><path d="m70 13 12-10-1 32-12 13z" fill="#947a59"/>
+  <path d="m4 18 19 1 4 3 23-1 13 3m-60 8 22-1 10 3 23 1" fill="none" stroke="#d4b58b" stroke-width="3"/>
+  <path d="m15 45 1-35 16-9m17 46 1-35 14-9" fill="none" stroke="#757766" stroke-width="3"/>
+ </g>
+</defs>
+<rect width="1280" height="720" fill="url(#wall)"/><path d="M0 396h1280v324H0z" fill="url(#floor)"/>
+<!-- Daylight beyond the sorting hall; distant shapes stay softer than the waste. -->
+<rect x="177" y="86" width="896" height="163" rx="8" fill="#486261"/>
+<g clip-path="url(#panorama)">
+ <rect x="184" y="92" width="885" height="151" fill="url(#sky)"/>
+ <circle cx="910" cy="129" r="25" fill="#fff0c9"/>
+ <path d="M175 172q69-38 156-9t135-1q85-37 163-19t145 11q99-48 179-12t130 0v93H175z" fill="#a4c5b6"/>
+ <path d="m174 199 73-26 45 10 77-26 105 35 94-20 67 11 84-23 122 32 103-28 130 28v51H174z" fill="#84ad9b"/>
+ <g fill="#778f88"><path d="M213 223v-25l30-12v15l30-15v15l31-15v37zm482 0v-26h27v-8h18v8h34v26z"/><path d="m793 216 2-50h6l4 50z"/></g>
+ <path d="M179 224q60-25 119-9t114-4q67-25 138-6t115-4q95-21 144-3t109-2q112-22 157 1v48H179z" fill="#72978a"/>
+ <path d="m352 90-71 145h30l72-145zm22 0-72 145h7l73-145zm434 0-68 145h44l68-145z" fill="#f7f4d8" opacity=".23"/>
+ <path d="M397 90v151m221-151v151m221-151v151" stroke="#617e79" stroke-width="8"/>
+</g>
+<path d="M178 240h895l-7 11H184z" fill="#92a79a"/>
+<!-- Housed extractor on the left, compactor and bound cardboard on the right. -->
+<path d="M0 94h140l29 22v181H0z" fill="url(#panel)"/>
+<path d="M140 94v198l29 5V116z" fill="#354e52"/>
+<rect x="50" y="115" width="106" height="112" rx="12" fill="#365556" stroke="#95ada0" stroke-width="3"/>
+<rect x="8" y="131" width="29" height="73" rx="4" fill="url(#grate)"/>
+<path d="M3 243h133v10H3z" fill="url(#stripe)"/><path d="M15 264h110m-110 8h81" stroke="#89a09a" stroke-width="3"/>
+<path d="M1090 113h150l40 23v141h-180z" fill="url(#panel)"/>
+<path d="m1090 113 24-19h132l-6 19z" fill="#92aba0"/>
+<path d="M1107 137h89v65h-89z" fill="#365456"/><rect x="1114" y="145" width="49" height="38" rx="3" fill="url(#grate)"/>
+<use href="#bale" transform="translate(1085 254)"/><use href="#bale" transform="translate(1168 249)"/><use href="#bale" transform="translate(1138 213)"/>
+<path d="m720 247 176 0-393 390H82z" fill="url(#sunbeam)"/>
+<path d="M0 490h1280M0 657h1280M90 720l320-324m320 324-45-324m520 324L918 396" fill="none" stroke="#82978b" opacity=".28" stroke-width="3"/>
+<path d="m46 410 1150-5 60 17-1160 13z" fill="#536c62" opacity=".20"/>
+<use href="#leg" x="99"/><use href="#leg" x="399"/><use href="#leg" x="841"/><use href="#leg" x="1159"/>
+<path d="M58 299h1178l31 40H15z" fill="url(#rubber)" stroke="#324847" stroke-width="4"/>
+<rect x="13" y="335" width="1254" height="50" rx="25" fill="url(#steel)" stroke="#334947" stroke-width="4"/>
+<rect x="25" y="342" width="1230" height="31" rx="15" fill="#354949"/>
+<path d="M60 379h1160" stroke="#d2d4b1" stroke-width="3"/>
+<path d="M0 0h1280v84H0z" fill="#f3f3dc"/>
+<path d="M0 81h1280v8H0z" fill="#486362"/><path d="M0 89h1280v4H0z" fill="#91a69b"/>
+</svg>

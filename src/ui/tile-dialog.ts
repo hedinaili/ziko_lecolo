@@ -11,22 +11,27 @@ const messages: Record<TrackKind, [string, string, string]> = {
   demo: ['Des habitants veulent défendre leur région aux côtés de Ziko.', 'Préparer la manifestation', 'Plus il y a de participants, plus une loi de protection peut être votée.'],
   animal: ['Une espèce est en danger. Ziko peut lui venir en aide.', 'Préparer le sauvetage', 'Selon l’espèce, il faudra du matériel adapté ou des pièces écolo.'],
   tv: ['La télévision invite Ziko à parler de sa mission.', 'Préparer l’interview', 'Les réponses de Ziko sensibiliseront les spectateurs et attireront des bénévoles.'],
-  chantier: ['Un projet local peut améliorer durablement la région.', 'Consulter les chantiers', 'À 10 ans, Ziko peut déjà aménager un potager ou installer des nichoirs.'],
+  chantier: ['Un projet local peut améliorer durablement la région.', 'Consulter les chantiers', 'Les chantiers accessibles dépendent de l’âge de Ziko et du matériel disponible.'],
 };
 
-export function showTileDialog(kind: TrackKind, title: string, onAction: (brief: string) => void) {
+export function showTileDialog(kind: TrackKind, title: string, onAction: (brief: string, accepted: boolean) => void,
+  copy?: { description: string; action: string; rating?: HTMLElement; details?: HTMLElement }) {
   const [description, action, brief] = messages[kind];
   const dialog = document.createElement('dialog');
   dialog.className = 'tile-dialog';
   const heading = document.createElement('h2');
   heading.id = 'tile-heading'; heading.textContent = title;
   dialog.setAttribute('aria-labelledby', heading.id);
-  const body = document.createElement('p'); body.textContent = description;
-  const button = document.createElement('button'); button.textContent = action;
-  dialog.append(heading, body, button);
+  const body = document.createElement('p'); body.textContent = copy?.description ?? description;
+  const button = document.createElement('button'); button.textContent = copy?.action ?? action;
+  dialog.append(heading);
+  if (copy?.rating) dialog.append(copy.rating);
+  dialog.append(body);
+  if (copy?.details) dialog.append(copy.details);
+  dialog.append(button);
   (document.fullscreenElement ?? document.body).append(dialog);
   dialog.addEventListener('cancel', event => { event.preventDefault(); dialog.close(); });
-  dialog.addEventListener('close', () => { dialog.remove(); onAction(dialog.returnValue === 'action' ? brief : 'Retour au plateau.'); }, { once: true });
+  dialog.addEventListener('close', () => { dialog.remove(); const ok = dialog.returnValue === 'action'; onAction(ok ? brief : 'Retour au plateau.', ok); }, { once: true });
   dialog.onkeydown = event => event.stopPropagation();
   button.onclick = () => dialog.close('action');
   dialog.showModal();

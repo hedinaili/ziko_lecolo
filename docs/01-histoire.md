@@ -46,7 +46,7 @@ Le bouton **Commencer** lance le [tutoriel](03-tutoriel.md).
 | Caractère | curieux, sensible, courageux, parfois inquiet |
 | Passion | la nature, les animaux, les plantes |
 | Objet signature | sa **serpillière**, qu'il porte toujours à la main |
-| Symbole | le costume de super-héros dessiné dans les notes (lettre **S** sur la poitrine) |
+| Symbole | trois flèches blanches de recyclage sur la poitrine |
 
 ### La serpillière de Ziko
 
@@ -72,7 +72,7 @@ apparence, ses actions possibles et l'ampleur de ses actions.
 | 🧒 Enfant | 10 – 17 ans | 8 | Ziko en t-shirt avec un sac à dos et sa serpillière | Nettoyages de quartier, manifestations à l'école, télé locale |
 | 🧑 Jeune | 18 – 29 ans | 12 | Ziko étudiant, avec un vélo | Manifestations en ville, télé régionale, combats plus durs |
 | 🧔 Adulte | 30 – 41 ans | 12 | Ziko ingénieur/inventeur | Grands projets, télé nationale, petits boulots mieux payés |
-| 🦸 Super-héros | 42 – 50 ans | 8 | Le costume « S » des notes | Projets mondiaux, télé mondiale, boss final possible |
+| 🦸 Super-héros | 42 – 50 ans | 8 | Silhouette musclée, combinaison bleue et rouge, emblème de recyclage ♻ | Projets mondiaux, télé mondiale, boss final possible |
 
 À chaque changement d'époque, une **scène de transition** est jouée (voir
 [08 — Jalons et animations](08-jalons-et-animations.md#scènes-de-changement-dépoque)).

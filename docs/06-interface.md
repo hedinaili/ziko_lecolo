@@ -5,7 +5,7 @@ Le jeu est en **2D**, affiché en **1280 × 720** (16:9) et adapté à la taille
 
 > **Référence de disposition** : on s'inspire d'un jeu de plateau 2D existant **uniquement pour
 > l'emplacement** des éléments. À gauche, une grande scène illustrée avec le plateau en ovale. À droite,
-> une colonne de cartes d'information et les menus du carnet. « Lancer le dé » est centré sous le plateau. Le **contenu**,
+> quatre cartes indépendantes flottent en grille 2 × 2, sans fond ni bande verticale entre elles. Le décor reste visible sur toute la largeur. « Lancer le dé » est centré sous le plateau. Le **contenu**,
 > les **textes** et le **style graphique** de Ziko l'écolo sont propres au jeu (voir
 > [17 — Direction artistique](17-direction-artistique.md)).
 
@@ -13,7 +13,7 @@ Le jeu est en **2D**, affiché en **1280 × 720** (16:9) et adapté à la taille
 
 ```
 ┌──────────────────────────────────────────────────────┬─────────────────────────────┐
-│                ZONE SCÈNE + PLATEAU (≈ 65 %)         │   COLONNE DE DROITE (≈ 35 %) │
+│                SCÈNE PEINTE SUR TOUTE LA LARGEUR     ·   CARTES FLOTTANTES          │
 │                                                      │ ┌─────────────┐ ┌─────────┐ │
 │      ARRIÈRE-PLAN VIVANT (haut de la zone)           │ │🌍 VIE SUR   │ │ MISSION │ │
 │      La Terre / la ville de Ziko, qui change         │ │ TERRE       │ │  ENCORE │ │
@@ -43,12 +43,12 @@ Le jeu est en **2D**, affiché en **1280 × 720** (16:9) et adapté à la taille
   couleur de leur type (voir [05 — Plateau et cases](05-plateau-et-cases.md#couleurs-des-cases)). Elles
   sont posées en perspective sur le sol de la scène, et les cases du fond sont un peu plus petites.
 - **Ziko** est une petite figurine avec sa serpillière, montée sur un socle ovale vert et ivoire. Figurine et socle se déplacent ensemble ; toucher une case affiche son nom dans le carnet.
-- Une **étiquette** en bas à gauche montre l'âge de Ziko, l'année et son époque. Les boutons ⏩
+- Une **étiquette** en haut à gauche montre le portrait de Ziko, son âge et l'année. Le portrait et la figurine passent ensemble aux versions jeune, adulte et super-héros à 18, 30 et 42 ans. Les boutons ⏩
   (avance rapide) et ⚙️ (menu : pause, réglages, revoir l'intro, refaire le tutoriel, quitter) sont
   dans le coin.
 - Les **toasts** de notification apparaissent en haut à droite de cette zone.
 
-### Colonne de droite, de haut en bas
+### Cartes et commandes indépendantes, sans panneau latéral
 
 **1. Cartes d'information** (2 × 2) :
 

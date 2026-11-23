@@ -42,7 +42,7 @@
 | 09 | [Carte du monde](09-carte-du-monde.md) | Le planisphère et ses points (créatures, manifestations, nettoyages…) |
 | 10 | [Inventaire](10-inventaire.md) | Les objets en plusieurs exemplaires, les bénévoles et le matériel, l'Arche de Ziko |
 | 11 | [Mini-jeux](11-mini-jeux.md) | 6 jeux d'arcade de 30 s, et leurs récompenses en pièces |
-| 12 | [Combats](12-combats.md) | Les créatures, les armes, la barre de timing, le boss |
+| 12 | [Combats](12-combats.md) | Charte arcade et duels jouables : Sac-Zombie, Méduse de pétrole et Golem de pneus |
 | 13 | [Télé et interview](13-tele-interview.md) | Le quiz, l'audience, « Le lendemain… » |
 | 14 | [Économie](14-economie.md) | Les pièces, le magasin, les grands projets, l'équilibrage |
 | 15 | [Fin et score](15-fin-et-score.md) | Les formules de score, les fins, l'épilogue |

@@ -2,6 +2,9 @@ import { describe, expect, it } from 'vitest';
 import { Game, GameRuleError } from '../../src/core/game';
 import { BALANCE } from '../../src/data/balance';
 import type { GameEvent } from '../../src/core/events';
+import { DUEL_GIFTS,WEAPONS } from '../../src/data/weapons';
+import { Rng } from '../../src/core/rng';
+import { vi } from 'vitest';
 
 function gameAt(tileIndex: number, seed = 1): Game {
   const g = Game.create(seed);
@@ -11,6 +14,23 @@ function gameAt(tileIndex: number, seed = 1): Game {
 }
 
 describe('Game flow', () => {
+  it.each([['sacZombie',5],['meduse',13],['golemPneus',21]] as const)('makes one 50%% gift roll per %s win and gives only equippable inventory items',(creature,position)=>{
+    const game=Game.create(42), opponent={creature,boss:false};
+    const roll=vi.spyOn(Rng.prototype,'chance');
+    try{
+      roll.mockReturnValueOnce(false);
+      expect(game.applyCombatResult(opponent,'win',0,position)).toBeNull();
+      roll.mockReturnValueOnce(true);
+      const before={...game.state.inventory};
+      const gift=game.applyCombatResult(opponent,'win',0,position)!;
+      expect(DUEL_GIFTS).toContain(gift);
+      expect(game.state.inventory[gift]).toBe((before[gift]??0)+1);
+      for(const id of DUEL_GIFTS)expect(WEAPONS[id]?.id).toBe(id);
+      expect(game.applyCombatResult(opponent,'lose',0,position)).toBeNull();
+      expect(game.applyCombatResult(opponent,'draw',0,position)).toBeNull();
+      expect(roll.mock.calls).toEqual([[.5],[.5]]);
+    }finally{roll.mockRestore();}
+  });
   it('starts in 2500 with Ziko aged 10 and 50 coins', () => {
     const g = Game.create(1);
     expect([g.year, g.age, g.era, g.state.coins, g.estimatedYear]).toEqual([2500, 10, 'child', 50, 2800]);

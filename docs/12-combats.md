@@ -1,9 +1,81 @@
 # 12 — Combats
 
-Sur une case ⚔️ **Combat**, une **créature née des déchets** attaque. Le combat est **court** (environ
-40 s) et mélange **choix tactique** (quelle arme utiliser) et **adresse** (frapper au bon moment).
+Sur une case ⚔️ **Combat**, une **créature née des déchets** attaque. Trois duels sont jouables : **Sac-Zombie** (case 5, Asie, `/?defi=pince`), **Méduse de pétrole** (case 13, Atlantique, `/?defi=meduse`) et **Golem de pneus** (case 21, Amérique du Nord, `/?defi=golem`). En aperçu, le premier lancer atteint la case et prête son outil pour ce duel, sans modifier l’inventaire.
+
+## Charte commune des duels jouables
+
+Dans chaque arène, les spectateurs encouragent les combattants, légèrement décalés les uns des autres. Ils restent décoratifs, sans collision ni effet sur les commandes.
+
+| Aspect | À conserver pour chaque créature |
+|---|---|
+| Entrée | Fiche illustrée avant le départ, adaptée au clavier ou au tactile. Le chrono de 40 s attend la confirmation. |
+| Décor et personnages | Une arène qui raconte l’origine de la pollution, des spectateurs animés en retrait, une piste lisible. Ziko garde l’apparence de son âge et l’outil de son inventaire. |
+| Attaques | Déplacement, saut sans salto, accroupissement, hitboxes et garde frontale temporaire. Un seul bouton : poing → pied → outil si les frappes portent (7/7/14 PV) ; un seul coup de pied directionnel par saut. Un coup reçu efface le combo et les entrées en mémoire. Après le troisième coup, 300 ms sans mémorisation. Pas de soins. |
+| Lisibilité | Distinguer anticipation, attaque, impact, récupération et garde par le mouvement et les effets, sans texte d’assistance sous le combat. Chaque spéciale a sa trajectoire et sa réponse, une collision cohérente avec l’animation et un plafond de 25 PV. La garde doit décourager le martèlement sans empêcher de punir une ouverture. |
+| Son | Musique originale en boucle, cri ordinaire et appel spécial distincts, bruitages pour impacts, blocages et parade. Respecter la sourdine du plateau et arrêter les sons en quittant la scène. |
+| Interface | Jauges RPG vert-or, portraits ronds et chrono central. Clavier : flèches, Espace, Alt et E. Sur téléphone : joystick translucide à gauche, Frappe et Parade à droite, mouvements et actions simultanés. |
+| Sortie | Chute du perdant et « KO! » rouge avant le dialogue, jamais de KO sur expiration seule. Illustration de Ziko à gauche du dialogue, adversaire à droite. Victoire : reconnaissance de l’âge et de la détermination, aveu, vœux de succès et 50 % de chances de donner l’un des dix outils équipables. Défaite : moquerie puis promesse de revanche. Bilan et règlement une seule fois, puis plateau jouable. |
+
+### Deuxième rencontre : Méduse de pétrole
+
+Sur le littoral atlantique, cette méduse de goudron se déplace par pulsations. Son tentacule balaie plus loin que le bras du Sac-Zombie : sauter le fouet et la nappe basse, se baisser sous la goutte haute, anticiper sa ruée. Sa spéciale fait bouillonner **trois flaques fixes sur le quai** pendant 1,15 s, puis des jets de pétrole en jaillissent. Un jet enlève 25 PV une seule fois : sauter assez tôt pour le survoler, parer à l’éruption ou quitter la flaque. Le fût rouillé, le bidon cabossé et la bouée goudronnée encouragent la créature en arrière-plan.
+
+L’éponge absorbante allonge la portée du troisième coup contre le pétrole ; la pince n’a pas ce bonus ici. Une défaite enregistre une marée noire dans l’Atlantique et diminue de 15 ans la survie marine ; victoire, nul et défaite conservent le barème du plateau (+8, +2, −5 pièces).
+
+### Troisième rencontre : Golem de pneus
+
+Hors spéciale, le Golem lance de petits pneus à rebonds décroissants (sauter) et des boulons de roue en arc peu prononcé à hauteur de tête (s’accroupir). Il attend 820 ms avant sa prochaine décision et récupère en 440 ms ; sa garde peut se réarmer après 2,05 s. Le temps d’anticipation avant un coup reste inchangé.
+
+Sur la Route 66, les pneus du Golem s’emboîtent pour former une seule roue : son corps devient le projectile. Ce **Double rebond** commence au ras du sol, s’arrête au bord de l’arène sur un choc métallique, puis revient à hauteur de tête. Sauter l’aller, attendre le rebond, puis maintenir ↓ au retour. Chaque passage peut aussi être paré. L’ensemble inflige **au maximum 25 PV**, puis le Golem se déplie à son point de départ et laisse une ouverture. Ce n’est ni une tornade ni une éruption ciblée.
+
+La clé à recycler exploite les jantes et allonge le troisième coup. Le prêt de démonstration ne modifie pas le sac de Ziko. Une défaite augmente les gaz de 1 point ; le dialogue, le don éventuel et le retour au plateau suivent la charte commune.
 
 ## Les créatures
+
+Le Sac-Zombie pousse un bref « GRAH ! » au départ de ses attaques ordinaires. Sa tornade est annoncée par un appel original en trois syllabes, « GRA-RA-KA ! ». Ces cris synthétisés respectent la sourdine du plateau. Pendant le duel, les animations et les sons signalent les actions sans commentaire écrit en bas de l’arène.
+
+**Spéciale du Sac-Zombie : tornade de déchets.** La colonne se forme à la position du Sac-Zombie puis avance en ligne droite à vitesse constante. Elle ne suit pas Ziko et poursuit sa route après l’avoir traversé. C’est le passage de son axe sur Ziko qui enlève **25 PV**, une seule fois, sauf si sa parade est active à cet instant. Sauter ou s’accroupir ne protège pas. La prochaine tornade attend au moins sept secondes après la sortie de la précédente.
+
+**Premier combat jouable : case 5, Sac-Zombie.** Pour essayer sa faiblesse sans achat, ouvrir `/?defi=pince`, puis lancer le dé une fois. La pince est prêtée et présélectionnée uniquement pour ce premier combat de démonstration ; l’inventaire normal ne change pas.
+
+### Premier duel : détail des règles et commandes
+
+Avant le départ, la fiche du Sac-Zombie montre six commandes illustrées adaptées au clavier ou à l’écran tactile. « Affronter le Sac-Zombie » ferme la fiche et lance le chronomètre.
+
+Le bandeau de vie reprend le modèle « RPG moderne » : portraits cerclés d’or aux extrémités, PV en chiffres au-dessus des barres vertes brillantes et chrono dans un médaillon central. Chaque barre se vide du centre vers son portrait.
+
+Chaque réplique affiche le personnage en pied, en haut de la case : Ziko à gauche (selon son âge) ou le Sac-Zombie à droite. Les portraits ronds restent réservés aux jauges.
+
+Le Sac-Zombie attend 1,175 s avant sa prochaine décision en marche et récupère en 655 ms. Sa garde peut se réarmer après 2,85 s ; les fenêtres d’anticipation et de parade sont inchangées.
+
+Quand une jauge de vie tombe à zéro, un grand **KO!** rouge en italique apparaît au centre pendant 1,35 s avant le bilan. Il ne s’affiche pas si seul le chrono expire.
+
+Le vaincu tombe et reste au sol. Après le KO, un dialogue au bas de l’arène précède le bilan (Suite / Voir le bilan, Échap pour passer). En cas de victoire, le Sac-Zombie reconnaît les dégâts qu’il a causés et peut remettre un outil : **50 % de chances par victoire**, jamais sur défaite ou match nul. Les dix cadeaux équipables sont : pince à déchets, éponge absorbante, clé à recycler, aspirateur à smog, filet à déchets, brosse à récurer, raclette de voirie, balayette de poche, aimant de collecte et râteau de plage. Le filet conserve aussi son bonus dans Filet Océan.
+
+Le Sac-Zombie défend une décharge au bord du marché. Trois créatures-déchets aux sourcils froncés et aux yeux plissés se déplacent sur les talus, agitent leurs bras pour encourager les combattants et bondissent plus haut quand un coup porte. À l’approche de la tornade, elles se tassent et baissent les bras. Elles ne sont pas des cibles.
+
+Ziko saute sans rotation. Appuyer sur Frappe en l’air déclenche un seul coup de pied, orienté dans le sens du déplacement au déclenchement (ou dans la direction où Ziko regarde s’il saute sur place). Aucun appui en l’air ne prépare de combo : à l’atterrissage, la prochaine frappe repart du poing.
+
+**Animation du premier duel** : au sol, Ziko enfant utilise douze dessins en pied pour le poing, le pied et la pince. Le talon d’appui reste calé entre les poses. Le Sac-Zombie se comprime au contact ; la scène de combat marque un arrêt de 32 ms (72 ms pour le troisième coup), puis le sac recule. Le chrono et la mémoire des frappes restent actifs. Les autres âges, outils et les mouvements aériens gardent leurs animations articulées.
+
+| Commande | Action |
+|---|---|
+| ← / →, ↑, ↓ | Marcher, sauter, s’accroupir. Les commandes tactiles peuvent être combinées. |
+| Espace / Frappe | Un appui par coup. Poing (7 PV), pied (7 PV), puis outil (14 PV). Les impacts ne comptent qu’à portée, pendant la phase active. |
+| Alt / Parade | Ziko disparaît 175 ms. Intercepter une attaque pendant cet instant évite les dégâts et laisse une ouverture ; recharge de 1,25 s. |
+| E / Outil | Choisir parmi les outils possédés. Aucun soin n’est possible pendant le duel ; aucune trousse n’est consommée. |
+
+Deux appuis supplémentaires au maximum sont mémorisés pendant une animation. Un coup dans le vide ou une pause de plus de 480 ms après récupération ramène au poing. Un coup reçu annule **aussi les appuis mémorisés**. La pince donne plus de portée au troisième coup contre le Sac-Zombie, sans multiplier à nouveau ses dégâts. Le sac avance, prépare une frappe basse (saut) ou une bouteille haute (accroupissement). Une jauge vide décide du KO ; à la fin du chrono sans KO, le sac s’enfuit. Le combat utilise le son du plateau et ne change pas le barème des récompenses.
+
+**Portée de cette version :** les sections de conception ci-dessous décrivant les tours, les cœurs et la barre de timing restent la référence du simulateur historique, pas les commandes du duel jouable.
+
+Après le troisième impact, marteler Frappe entretient la garde frontale du sac sans empêcher ses attaques. Pour créer une ouverture, reculer à plus de 225 unités, ne plus presser Frappe pendant 820 ms, passer derrière ou réussir une parade. Sur ordinateur, aucun bouton virtuel ; sur mobile, joystick gauche (haut : saut, bas : accroupi) et deux boutons ronds translucides à droite. Toucher la ligne de statut permet de changer d’outil.
+
+Le premier Sac-Zombie a 63 PV au lieu de 48 : il faut désormais l’équivalent de neuf coups simples réussis au lieu de six (+50 %), sans raccourcir la fenêtre de parade.
+
+Après la fin du troisième coup, Ziko doit attendre **300 ms** avant de commencer un autre combo. Les appuis sur Frappe pendant le coup d’outil ou cette pause sont ignorés, pas mémorisés. Un nouvel appui après la pause repart au poing. Seules les frappes sont bloquées pendant ces 300 ms.
+
+Le Sac-Zombie peut aussi charger épaule en avant ou faire rouler une bouteille au sol : saute ou utilise la parade, plutôt que de t’accroupir. À courte distance, il peut lever les bras en garde, notamment après avoir encaissé un combo. Pendant 580 ms, sa garde bloque les frappes de face sans perdre de PV ni valider le coup dans la série. Elle ne protège pas son dos. Il baisse ensuite les bras et laisse une ouverture.
 
 | Créature | Née de… | Région (case) | Point faible | Effet si Ziko perd |
 |---|---|---|---|---|
@@ -168,7 +240,7 @@ plutôt 4 ou 5. Avec une arme peu efficace, la créature risque de s'enfuir.
 
 | Résultat | Effets |
 |---|---|
-| 🏆 **Victoire** | **+8 pièces**, créatures −0,7, le point 👹 disparaît de la [carte](09-carte-du-monde.md), 30 % de chance de gagner un objet. La première victoire déclenche un **grand jalon**. |
+| 🏆 **Victoire** | **+8 pièces**, créatures −0,7. Duels jouables : 50 % de chances de recevoir un outil ; autres créatures ordinaires du simulateur : 30 % de chances de gagner un objet. La première victoire déclenche un **grand jalon**. |
 | 🤝 **Match nul** (la créature s'enfuit) | +2 pièces, aucun effet sur les métriques |
 | 💥 **Défaite** | −5 pièces, créatures +0,5, effet de la créature (tableau plus haut). Ziko se relève en s'appuyant sur sa serpillière : on ne perd jamais la partie à cause d'un combat. |
 

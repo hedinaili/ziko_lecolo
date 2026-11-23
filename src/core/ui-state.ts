@@ -31,6 +31,7 @@ export type UiCommandType = UiCommand['type'];
 export type UiSystemEvent =
   | { type: 'moveDone'; next: NextAfterMove }
   | { type: 'tileDone' }
+  | { type: 'startActivity' }
   | { type: 'activityDone' }
   | { type: 'cinematicDone' }
   | { type: 'queueCinematic'; id: string }
@@ -168,6 +169,10 @@ export class UiStateMachine {
       case 'tileDone':
         ok = s.mode === 'tile';
         if (ok) this.goTo('yearSummary');
+        break;
+      case 'startActivity':
+        ok = s.mode === 'tile';
+        if (ok) s.mode = 'activity';
         break;
       case 'activityDone':
         ok = s.mode === 'activity';

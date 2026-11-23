@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="155" viewBox="0 0 180 155">
+<defs>
+ <linearGradient id="leaf" x2=".3" y2="1"><stop stop-color="#b0c862"/><stop offset=".4" stop-color="#739345"/><stop offset="1" stop-color="#365d3c"/></linearGradient>
+ <linearGradient id="bark"><stop stop-color="#5c4130"/><stop offset=".55" stop-color="#a0794e"/><stop offset="1" stop-color="#634333"/></linearGradient>
+</defs>
+<ellipse cx="90" cy="148" rx="41" ry="4" fill="#394821" opacity=".23"/>
+<path d="m76 148 9-8 2-43-19-23-33-14 3-4 36 13 14 13 3-22-13-22 5-2 14 19 18-21 5 2-21 28-3 24 15-18 29-14 3 3-28 18-20 30 1 35 9 7z" fill="url(#bark)"/>
+<path d="M8 62q-9-8 7-16 1-10 16-10 7-8 21-5 5-8 17-8-1-8 12-11 13-11 33-4 14-1 18 9 18-3 24 9 14 3 13 14 17 10 3 17-6 7-22 6-9 9-26 4-19 6-27-4-17 4-27-2-18 10-32 4-23 9-30-3z" fill="url(#leaf)"/>
+<path d="M17 47q14-10 25-6t22-4m12-13q15-11 34-8m7 26q15-10 27-4" fill="none" stroke="#b1c66a" stroke-width="4" opacity=".68" stroke-linecap="round"/>
+</svg>

@@ -49,6 +49,7 @@ export type MinigameId = 'astroZiko' | 'triExpress' | 'filetOcean' | 'foretEclai
 export type CreatureId = 'sacZombie' | 'golemPneus' | 'meduse' | 'smog' | 'roiOrdures';
 
 export type ItemId =
+  | 'brosse' | 'raclette' | 'balayette' | 'aimant' | 'rateau'
   | 'mop'
   | 'pince'
   | 'cle'

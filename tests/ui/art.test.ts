@@ -1,10 +1,18 @@
 import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { ART_FILES, artUrl, CRITICAL_ART, DEFERRED_ART, PAINTED_BACKGROUNDS, zikoArtFor } from '../../src/data/art';
+import { ART_FILES, artUrl, boardLook, CRITICAL_ART, DEFERRED_ART, PAINTED_BACKGROUNDS, zikoArtFor } from '../../src/data/art';
 import { INTRO_PANELS } from '../../src/data/introPanels';
 
 describe('painted art manifest', () => {
+  it('switches both board illustrations together at each age boundary', () => {
+    const looks = [10, 18, 30, 42].map(boardLook);
+    expect([17, 29, 41, 50].map(boardLook)).toEqual(looks);
+    for (const part of ['avatar', 'pawn'] as const) {
+      expect(new Set(looks.map(look => look[part])).size).toBe(4);
+      for (const look of looks) expect(ART_FILES).toContain(look[part]);
+    }
+  });
   it('ships every listed illustration in both sizes', () => {
     for (const name of ART_FILES) {
       for (const small of [false, true]) {

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+<defs>
+ <linearGradient id="sky" x2=".2" y2="1"><stop stop-color="#84bbce"/><stop offset=".7" stop-color="#f6dfb6"/><stop offset="1" stop-color="#fad6a0"/></linearGradient>
+ <linearGradient id="rock" x2=".8" y2="1"><stop stop-color="#8e9ea2"/><stop offset=".5" stop-color="#647987"/><stop offset="1" stop-color="#a3ac9c"/></linearGradient>
+ <linearGradient id="land" x2=".1" y2="1"><stop stop-color="#729085"/><stop offset="1" stop-color="#55746c"/></linearGradient>
+ <linearGradient id="road" x2="0" y2="1"><stop stop-color="#747b77"/><stop offset=".55" stop-color="#515d60"/><stop offset="1" stop-color="#404d51"/></linearGradient>
+ <g id="home"><path fill="#dfc5a2" d="M1 16h52v31H1z"/><path fill="#bd9977" d="m53 16 16-8v31l-16 8z"/><path fill="#ab614d" d="m-4 17 14-15h45l17 6-20 9z"/><path fill="#497579" d="M8 25h10v9H8zm20 0h10v22H28z"/></g>
+</defs>
+<rect width="1280" height="720" fill="url(#sky)"/><circle cx="1000" cy="147" r="43" fill="#fff2c9"/>
+<path d="m0 318 149-105 75 28 119-95 79 62 105-94 66 64 82-50 140 109 88-56 98 83 139-101 140 92v183H0z" fill="#a5b5b6"/>
+<path d="m0 340 110-66 65 8 146-120 67 70 104 63 121-130 69 59 29-17 105 80 138-127 87 90 55-30 84 65v141H0z" fill="url(#rock)"/>
+<path d="m245 227 76-65 39 41-29-10-17 11-7-12-26 28 7-14zm331-24 37-38 34 30-24-9-7 13-8-12zm340-7 38-36 44 47-32-19-13 11-4-15z" fill="#e6e6d8"/>
+<path d="M0 350q155-92 295-35t284 18q137-79 253-24t242 9q96-32 206-23v174H0z" fill="url(#land)"/>
+<path d="M0 405q152-77 345-33t345 14q251-65 590-32v139H0z" fill="#a1a775"/>
+<path d="M0 423q155-63 349-36t328 17m119-15q203-46 484-16" stroke="#d2be8c" stroke-width="9" fill="none"/>
+<use href="#home" transform="translate(410 346) scale(.65)"/><use href="#home" transform="translate(482 349) scale(.56)"/><use href="#home" transform="translate(940 347) scale(.7)"/>
+<path d="M0 450q250-48 500-13t780-18v114H0z" fill="#859368"/><path d="M0 499h1280v22H0z" fill="#dac39a"/>
+<path d="M0 520h1280v200H0z" fill="url(#road)"/><path d="M0 530h1280M0 675h1280" stroke="#cecbb2" stroke-width="5"/>
+</svg>

@@ -15,6 +15,11 @@ export interface ItemDef {
 }
 
 export const ITEMS: Readonly<Record<ItemId, ItemDef>> = {
+  brosse: { id:'brosse', label:'Brosse à récurer', category:'weapon', price:null, era:'child', maxStack:99 },
+  raclette: { id:'raclette', label:'Raclette de voirie', category:'weapon', price:null, era:'child', maxStack:99 },
+  balayette: { id:'balayette', label:'Balayette de poche', category:'weapon', price:null, era:'child', maxStack:99 },
+  aimant: { id:'aimant', label:'Aimant de collecte', category:'weapon', price:null, era:'child', maxStack:99 },
+  rateau: { id:'rateau', label:'Râteau de plage', category:'weapon', price:null, era:'child', maxStack:99 },
   mop: { id: 'mop', label: 'Serpillière de Ziko', category: 'weapon', price: null, era: 'child', maxStack: 1 },
   pince: { id: 'pince', label: 'Pince à déchets', category: 'weapon', price: 12, era: 'child', maxStack: 99, weakness: 'sacZombie' },
   eponge: { id: 'eponge', label: 'Éponge absorbante', category: 'weapon', price: 15, era: 'child', maxStack: 99, weakness: 'meduse' },

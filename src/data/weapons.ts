@@ -18,6 +18,12 @@ export interface WeaponDef {
 
 /** All weapons are cleaning or anti-pollution tools (docs/12). */
 export const WEAPONS: Readonly<Partial<Record<ItemId, WeaponDef>>> = {
+  filet:{id:'filet',label:'Filet à déchets',description:'Rassemble les déchets flottants.',power:1,precision:{good:.29,perfect:.11},matchups:{sacZombie:2}},
+  brosse:{id:'brosse',label:'Brosse à récurer',description:'Décolle la crasse incrustée.',power:1,precision:{good:.32,perfect:.10},matchups:{meduse:2}},
+  raclette:{id:'raclette',label:'Raclette de voirie',description:'Repousse les flaques grasses.',power:1,precision:{good:.28,perfect:.10},matchups:{meduse:2}},
+  balayette:{id:'balayette',label:'Balayette de poche',description:'Déloge les petits emballages.',power:1,precision:{good:.34,perfect:.12},matchups:{sacZombie:2}},
+  aimant:{id:'aimant',label:'Aimant de collecte',description:'Sépare les pièces métalliques du tas.',power:1,precision:{good:.26,perfect:.10},matchups:{golemPneus:2}},
+  rateau:{id:'rateau',label:'Râteau de plage',description:'Accroche les sacs enfouis dans le sable.',power:1,precision:{good:.28,perfect:.10},matchups:{sacZombie:2}},
   mop: {
     id: 'mop',
     label: 'Serpillière',
@@ -62,6 +68,8 @@ export const WEAPONS: Readonly<Partial<Record<ItemId, WeaponDef>>> = {
 
 /** Boss phase → form used for matchups (sac → pneu → smog, docs/12). */
 export const BOSS_FORMS: readonly CreatureForm[] = ['sacZombie', 'golemPneus', 'smog'];
+
+export const DUEL_GIFTS = ['pince','eponge','cle','aspirateur','filet','brosse','raclette','balayette','aimant','rateau'] as const;
 
 /** Extra multiplier of the Super-Serpillière (hero era). */
 export const HERO_MOP_BONUS = 1.5;

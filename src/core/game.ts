@@ -1,4 +1,6 @@
 import { BALANCE } from '../data/balance';
+import { DUEL_GIFTS } from '../data/weapons';
+import { ITEMS } from '../data/items';
 import { TILES } from '../data/board';
 import { CREATURES, SPECIES } from '../data/content';
 import { computeTv, medalFor, minigameBonus, type QuizAnswer, type TvResult } from './activities';
@@ -11,7 +13,7 @@ import { Rng } from './rng';
 import { estimatedYear, qualityIndex } from './score';
 import { ageOf, createInitialState, eraOf, itemCount, yearOf, type Ctx, type GameState, type PendingAction, type Phase } from './state';
 import { landOn, moveForward, resolveCard, resolveTrap, tileAt } from './tiles';
-import type { ChantierId, Era, ItemId, Medal, ProjectId } from './types';
+import type { ChantierId, Era, ItemId, Medal, MinigameId, ProjectId } from './types';
 import { addCoins, addItem, addVolunteers, applyDeltas, first, record, removeItem, saveSpecies } from './world';
 import { runYearEnd, type YearReport } from './yearEnd';
 
@@ -173,24 +175,35 @@ export class Game {
 
   resolveMinigame(scoreRatio: number): { medal: Medal; coins: number } {
     const p = this.expectPending('minigame');
-    const result = medalFor(scoreRatio);
-    addCoins(this.ctx, result.coins, `minigame:${p.minigame}`);
+    const result = this.awardMinigame(p.minigame, scoreRatio, this.state.position);
+    this.finishTile();
+    return result;
+  }
+
+  awardMinigame(id: MinigameId, scoreRatio: number, position: number): { medal: Medal; coins: number } {
+    const result = medalFor(scoreRatio,id);
+    addCoins(this.ctx, result.coins, `minigame:${id}`);
     if (result.medal !== 'none') this.state.counters.medals++;
     if (result.medal === 'gold') {
       this.state.counters.golds++;
       addItem(this.ctx, this.rng.chance(0.5) ? 'kit' : 'seeds', 1);
     }
-    applyDeltas(this.ctx, minigameBonus(p.minigame, result.medal), `minigame:${p.minigame}`);
-    record(this.ctx, 'minigame', TILES[this.state.position]?.region, result.medal);
-    this.finishTile();
+    applyDeltas(this.ctx, minigameBonus(id, result.medal), `minigame:${id}`);
+    record(this.ctx, 'minigame', TILES[position]?.region, result.medal);
     return result;
   }
 
   resolveCombat(outcome: CombatOutcome, medkitsUsed = 0): void {
     const p = this.expectPending('combat');
+    this.applyCombatResult(p, outcome, medkitsUsed, this.state.position);
+    this.finishTile();
+  }
+
+  applyCombatResult(p: Pick<Extract<PendingAction, {kind:'combat'}>, 'creature'|'boss'>, outcome: CombatOutcome, medkitsUsed: number, position: number): ItemId|null {
+    let gift:ItemId|null=null;
     const c = BALANCE.combat;
     removeItem(this.ctx, 'medkit', Math.max(0, Math.floor(medkitsUsed)));
-    const region = TILES[this.state.position]?.region;
+    const region = TILES[position]?.region;
     if (p.boss) {
       this.state.bossDone = true;
       if (outcome === 'win') {
@@ -206,7 +219,12 @@ export class Game {
       addCoins(this.ctx, c.winCoins, 'combat');
       applyDeltas(this.ctx, { creatures: c.winCreatures }, 'combat');
       first(this.ctx, 'combatWin');
-      if (this.rng.chance(c.dropChance)) addItem(this.ctx, this.rng.pick(COMBAT_DROPS), 1);
+      if(p.creature==='sacZombie'||p.creature==='meduse'||p.creature==='golemPneus'){
+        if(this.rng.chance(.5)){
+          const eligible=DUEL_GIFTS.filter(id=>itemCount(this.state,id)<ITEMS[id].maxStack);
+          if(eligible.length){gift=this.rng.pick(eligible);addItem(this.ctx,gift,1);}
+        }
+      }else if (this.rng.chance(c.dropChance)) addItem(this.ctx, this.rng.pick(COMBAT_DROPS), 1);
     } else if (outcome === 'draw') {
       this.state.counters.combatsDrawn++;
       addCoins(this.ctx, c.drawCoins, 'combat');
@@ -218,7 +236,7 @@ export class Game {
     }
     this.bus.emit({ type: 'combatEnded', creature: p.creature, outcome });
     record(this.ctx, 'combat', region, `${p.creature}:${outcome}`);
-    this.finishTile();
+    return gift;
   }
 
   resolveTv(answers: readonly QuizAnswer[]): TvResult {

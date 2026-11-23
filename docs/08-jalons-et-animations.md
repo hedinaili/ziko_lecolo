@@ -92,7 +92,7 @@ Quatre scènes de transition, avec la même composition (environ 6 s chacune) :
 | 10 ans (début) | Ziko avec son sac à dos devant sa maison | « Ta mission commence. » |
 | 18 ans | Ziko grandit en fondu, puis prend son vélo | « Ziko a 18 ans. Il peut maintenant organiser des manifestations en ville ! » |
 | 30 ans | Ziko dans un atelier, avec des plans d'inventions | « Ziko a 30 ans. Les grands projets sont débloqués ! » |
-| 42 ans | Ziko enfile le costume « S » des notes, avec une cape au vent. Sa serpillière s'illumine et devient la **Super-Serpillière** | « Ziko est devenu un **super-héros de la Terre** ! » |
+| 42 ans | Ziko enfile sa combinaison bleue et rouge. Trois flèches blanches de recyclage ornent sa poitrine et sa cape rouge flotte au vent. Sa serpillière s'illumine et devient la **Super-Serpillière** | « Ziko est devenu un **super-héros de la Terre** ! » |
 
 ## Bilan de fin d'année
 

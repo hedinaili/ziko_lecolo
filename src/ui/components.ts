@@ -109,6 +109,11 @@ export class Button extends Phaser.GameObjects.Container {
     return this;
   }
 
+  setLabel(text: string): this {
+    this.label.setText(text);
+    return this;
+  }
+
   private redraw(hover: boolean): void {
     const w = this.opts.width ?? 260;
     const h = this.opts.height ?? 72;

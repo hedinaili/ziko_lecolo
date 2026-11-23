@@ -3,6 +3,13 @@ import '@fontsource/baloo-2/700.css';
 import * as Phaser from 'phaser';
 import { exposeDebugHooks } from './app';
 import { BoardScene } from './scenes/BoardScene';
+import { AstroScene } from './scenes/AstroScene';
+import { TriScene } from './scenes/TriScene';
+import { OceanScene } from './scenes/OceanScene';
+import { ForestScene } from './scenes/ForestScene';
+import { SmogScene } from './scenes/SmogScene';
+import { VeloScene } from './scenes/VeloScene';
+import { SacScene } from './scenes/SacScene';
 import { IntroScene } from './scenes/IntroScene';
 import { IntroTextScene } from './scenes/IntroTextScene';
 import { PreloadScene } from './scenes/PreloadScene';
@@ -34,7 +41,7 @@ async function start(): Promise<void> {
     scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
     fps: { target: 60 },
     input: { activePointers: 2 },
-    scene: [PreloadScene, TitleScene, IntroScene, IntroTextScene, BoardScene],
+    scene: [PreloadScene, TitleScene, IntroScene, IntroTextScene, BoardScene, AstroScene, TriScene, OceanScene, ForestScene, SmogScene, VeloScene, SacScene],
   });
   enableMobileFullscreen(game);
   exposeDebugHooks(() => game.loop.actualFps);

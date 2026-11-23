@@ -1,4 +1,6 @@
 import type { BackgroundId, Emotion } from './introPanels';
+import { eraOfAge } from './balance';
+import { ERAS } from '../core/types';
 
 /**
  * Painted illustrations available in public/art (generated with tools/prepare-art.py).
@@ -24,6 +26,10 @@ export const PAINTED_BACKGROUNDS: Readonly<Record<BackgroundId, string>> = {
 
 export const TITLE_ART = 'title';
 export const PAWN_ART = 'ziko-pawn';
+export function boardLook(age: number) {
+  const era = eraOfAge(age);
+  return { avatar: `ziko-avatar-${era}`, pawn: era === 'child' ? PAWN_ART : `ziko-pawn-${era}` };
+}
 
 export type ZikoArt = 'ziko-happy' | 'ziko-shocked' | 'ziko-sad' | 'ziko-back';
 export const ZIKO_ARTS: readonly ZikoArt[] = ['ziko-happy', 'ziko-shocked', 'ziko-sad', 'ziko-back'];
@@ -45,7 +51,8 @@ export function zikoArtFor(emotion: Emotion, back = false): ZikoArt {
 }
 
 /** Loaded before the title screen (small, needed immediately). */
-export const CRITICAL_ART: readonly string[] = [TITLE_ART, PAWN_ART, ...ZIKO_ARTS, PAINTED_BACKGROUNDS.garden, PAINTED_BACKGROUNDS.livingRoom];
+const boardArt = ERAS.flatMap(era => [`ziko-avatar-${era}`, era === 'child' ? PAWN_ART : `ziko-pawn-${era}`]);
+export const CRITICAL_ART: readonly string[] = [TITLE_ART, ...boardArt, ...ZIKO_ARTS, PAINTED_BACKGROUNDS.garden, PAINTED_BACKGROUNDS.livingRoom];
 
 /** Loaded in the background while the title screen is shown. */
 export const DEFERRED_ART: readonly string[] = Object.values(PAINTED_BACKGROUNDS).filter((n) => !CRITICAL_ART.includes(n));

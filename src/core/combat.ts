@@ -1,4 +1,5 @@
 import { BALANCE, ERA_INDEX } from '../data/balance';
+import { CREATURES } from '../data/content';
 import { BOSS_FORMS, HERO_MOP_BONUS, WEAPONS, type CreatureForm, type WeaponDef } from '../data/weapons';
 import type { CreatureId, Era, ItemId } from './types';
 
@@ -38,8 +39,8 @@ export function effectiveness(weapon: ItemId, form: CreatureForm): Effectiveness
 }
 
 export function weaknessOf(form: CreatureForm): ItemId | null {
-  const def = Object.values(WEAPONS).find((w) => (w?.matchups[form] ?? 1) > 1);
-  return def?.id ?? null;
+  const weakness=CREATURES[form].weakness;
+  return weakness==='all'?null:weakness;
 }
 
 export function weaponMultiplier(weapon: ItemId, form: CreatureForm, era: Era): number {

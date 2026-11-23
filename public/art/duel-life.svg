@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="450" height="24" viewBox="0 0 450 24">
+  <defs>
+    <linearGradient id="life"><stop stop-color="#49ce00"/><stop offset=".48" stop-color="#89ed00"/><stop offset=".84" stop-color="#d4f500"/><stop offset="1" stop-color="#ffe036"/></linearGradient>
+    <linearGradient id="shine" x2="0" y2="1"><stop stop-color="#ffff94" stop-opacity=".88"/><stop offset=".42" stop-color="#efff75" stop-opacity=".3"/><stop offset=".5" stop-color="#fff" stop-opacity=".04"/><stop offset=".58" stop-color="#347800" stop-opacity=".28"/><stop offset="1" stop-color="#185800" stop-opacity=".56"/></linearGradient>
+  </defs>
+  <rect width="450" height="24" rx="10" fill="url(#life)"/>
+  <rect width="450" height="24" rx="10" fill="url(#shine)"/>
+  <path d="M9 3H440" stroke="#f5ffc2" opacity=".8"/><ellipse cx="8" cy="6" rx="3.2" ry="2" fill="#fffbd3"/>
+</svg>

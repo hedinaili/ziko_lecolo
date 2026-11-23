@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+<defs>
+<linearGradient id="sky" x2=".15" y2="1"><stop stop-color="#83b7c0"/><stop offset=".78" stop-color="#f9dfac"/><stop offset="1" stop-color="#efbc85"/></linearGradient>
+<linearGradient id="land" x2=".3" y2="1"><stop stop-color="#cfa375"/><stop offset=".55" stop-color="#bc8c64"/><stop offset="1" stop-color="#996c4d"/></linearGradient>
+<pattern id="grass" width="131" height="73" patternUnits="userSpaceOnUse"><path d="m24 32-2-7m5 7 3-10m55 38-3-7m6 7 4-4" stroke="#805f43" opacity=".38" stroke-width="2"/><ellipse cx="106" cy="16" rx="4" ry="1.3" fill="#e8c18c"/></pattern>
+</defs>
+<rect width="1280" height="350" fill="url(#sky)"/><circle cx="1030" cy="135" r="43" fill="#ffeebc"/>
+<path d="m0 201 140-30 115 11 103-38 71 21 54-5 136 43 114-18 107-48 66 14 79 35 107-24 188 16v125H0z" fill="#a8a896"/>
+<path d="M0 222q170-88 353-16t321 7q128-67 254-20t352-3v121H0z" fill="#8a9477"/>
+<path d="M0 239q122-26 244-6t277-7q161-23 311-6t448-6v506H0z" fill="url(#land)"/>
+<path d="M0 270q258-65 596-20t684-16v21q-316 35-677 4T0 285z" fill="#ddbb85"/>
+<rect y="280" width="1280" height="440" fill="url(#grass)"/>
+<path d="m0 665 125-11 41-25 49 2m-89 23 52 19m1060-135-86 10-39 21-58 7m98-30-26-16" fill="none" stroke="#835c44" stroke-width="3" opacity=".45"/>
+</svg>
